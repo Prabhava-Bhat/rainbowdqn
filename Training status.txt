@@ -1,0 +1,219 @@
+PS C:\Users\CSP\Desktop\Praject'\Rainbow_chatgpt_v1.0> python Training_Loop.py     
+c:\Users\CSP\Desktop\Praject'\Rainbow_chatgpt_v1.0\.venv\Lib\site-packages\torch\optim\lr_scheduler.py:182: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn(
+Episode 1       Average Score: -467.60  Current Score: -467.60  Best Score: -467.60C:\Users\CSP\Desktop\Praject'\Rainbow_chatgpt_v1.0\Training_Loop.py:162: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  self.priorities[idx] = float(abs(error)) + 1e-5  # Explicitly convert to float
+Episode 100     Average Score: -174.60  Current Score: -205.89  Best Score: 16.9684
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep100.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 200     Average Score: -80.129  Current Score: -34.817  Best Score: 214.42
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep200.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 300     Average Score: -61.78   Current Score: -71.951  Best Score: 214.42
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep300.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 400     Average Score: 110.50   Current Score: -246.01  Best Score: 272.57
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep400.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 500     Average Score: 143.50   Current Score: 218.739  Best Score: 282.85
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep500.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 600     Average Score: 165.00   Current Score: 296.467  Best Score: 297.07
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep600.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 700     Average Score: 195.67   Current Score: 231.810  Best Score: 299.14
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep700.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 800     Average Score: 214.70   Current Score: 276.104  Best Score: 299.37
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep800.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 900     Average Score: 198.16   Current Score: 259.082  Best Score: 301.41
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep900.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 1000    Average Score: 220.27   Current Score: 276.165  Best Score: 301.41
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep1000.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 1100    Average Score: 205.68   Current Score: 300.425  Best Score: 301.41
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep1100.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 1200    Average Score: 220.92   Current Score: 274.588  Best Score: 302.65
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep1200.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 1300    Average Score: 225.33   Current Score: 183.102  Best Score: 302.65
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep1300.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 1400    Average Score: 201.22   Current Score: -192.32  Best Score: 302.65
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep1400.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 1500    Average Score: 227.28   Current Score: 255.878  Best Score: 302.65
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep1500.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 1600    Average Score: 230.40   Current Score: 255.597  Best Score: 302.65
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep1600.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 1700    Average Score: 213.81   Current Score: 263.474  Best Score: 302.65
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep1700.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 1800    Average Score: 204.57   Current Score: 257.764  Best Score: 302.65
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep1800.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 1900    Average Score: 225.54   Current Score: 243.628  Best Score: 306.53
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep1900.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 2000    Average Score: 231.44   Current Score: 260.467  Best Score: 306.53
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep2000.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 2100    Average Score: 225.68   Current Score: 292.63   Best Score: 306.53
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep2100.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 2200    Average Score: 238.90   Current Score: 286.97   Best Score: 306.53
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep2200.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 2300    Average Score: 231.05   Current Score: 229.042  Best Score: 306.53
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep2300.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 2400    Average Score: 234.72   Current Score: 301.78   Best Score: 307.42
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep2400.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 2500    Average Score: 237.88   Current Score: 296.83   Best Score: 307.68
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep2500.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 2600    Average Score: 243.16   Current Score: 191.40   Best Score: 307.68
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep2600.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 2700    Average Score: 230.72   Current Score: 284.764  Best Score: 307.68
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep2700.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 2800    Average Score: 238.53   Current Score: 273.58   Best Score: 307.68
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep2800.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 2900    Average Score: 253.17   Current Score: 231.840  Best Score: 309.84
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep2900.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 3000    Average Score: 234.61   Current Score: 226.445  Best Score: 309.84
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep3000.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 3100    Average Score: 248.85   Current Score: 214.92   Best Score: 310.96
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep3100.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 3200    Average Score: 228.37   Current Score: 260.213  Best Score: 310.96
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep3200.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 3300    Average Score: 258.14   Current Score: 275.40   Best Score: 310.96
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep3300.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 3400    Average Score: 244.79   Current Score: 288.85   Best Score: 312.24
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep3400.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 3500    Average Score: 247.19   Current Score: 264.434  Best Score: 312.24
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep3500.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 3600    Average Score: 255.69   Current Score: 291.183  Best Score: 312.24
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep3600.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 3700    Average Score: 262.24   Current Score: 249.66   Best Score: 313.64
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep3700.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 3800    Average Score: 244.34   Current Score: 248.724  Best Score: 313.64
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep3800.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 3900    Average Score: 250.46   Current Score: 297.74   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep3900.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 4000    Average Score: 249.66   Current Score: 231.91   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep4000.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 4100    Average Score: 256.75   Current Score: 271.41   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep4100.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 4200    Average Score: 256.74   Current Score: 294.95   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep4200.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 4300    Average Score: 267.63   Current Score: 255.05   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep4300.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 4400    Average Score: 267.36   Current Score: 280.251  Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep4400.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 4500    Average Score: 267.77   Current Score: 299.72   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep4500.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 4600    Average Score: 265.64   Current Score: 282.08   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep4600.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 4700    Average Score: 266.51   Current Score: 308.35   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep4700.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 4800    Average Score: 269.05   Current Score: 284.40   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep4800.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 4900    Average Score: 271.45   Current Score: 284.85   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep4900.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 5000    Average Score: 263.79   Current Score: 266.18   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep5000.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 5100    Average Score: 268.45   Current Score: 284.87   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep5100.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 5200    Average Score: 272.58   Current Score: 266.33   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep5200.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 5300    Average Score: 274.54   Current Score: 293.99   Best Score: 323.01
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep5300.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 5400    Average Score: 272.86   Current Score: 281.03   Best Score: 324.11
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep5400.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 5500    Average Score: 267.32   Current Score: 284.02   Best Score: 324.11
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep5500.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 5600    Average Score: 269.47   Current Score: 295.75   Best Score: 324.11
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep5600.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 5700    Average Score: 270.83   Current Score: 280.13   Best Score: 324.11
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep5700.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 5800    Average Score: 274.81   Current Score: 271.28   Best Score: 324.11
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep5800.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 5900    Average Score: 272.04   Current Score: 294.69   Best Score: 324.11
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep5900.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 6000    Average Score: 269.47   Current Score: 265.00   Best Score: 324.11
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep6000.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 6100    Average Score: 275.64   Current Score: 301.91   Best Score: 324.11
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep6100.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 6200    Average Score: 274.73   Current Score: 261.73   Best Score: 324.11
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep6200.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 6300    Average Score: 266.06   Current Score: 268.34   Best Score: 324.11
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep6300.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 6400    Average Score: 279.79   Current Score: 260.69   Best Score: 325.44
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep6400.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 6500    Average Score: 277.74   Current Score: 281.68   Best Score: 325.44
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep6500.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 6600    Average Score: 277.30   Current Score: 283.49   Best Score: 325.44
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep6600.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 6700    Average Score: 277.62   Current Score: 279.58   Best Score: 325.44
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep6700.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 6800    Average Score: 276.66   Current Score: 280.27   Best Score: 325.44
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep6800.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 6900    Average Score: 278.39   Current Score: 264.11   Best Score: 325.44
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep6900.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Episode 7000    Average Score: 280.16   Current Score: 284.23   Best Score: 325.44
+Checkpoint saved to ./checkpoints/checkpoint_20250526_215134_ep7000.pth
+Statistics saved to ./stats/stats_20250526_215134.json
+Model saved to ./models\rainbow_model_20250526_215134.pth
+Training statistics saved to ./stats\training_stats_20250526_215134.csv
+Statistics saved to final_stats_20250526_215134.json
+Training plot saved to ./stats/training_plot_20250526_215134.png

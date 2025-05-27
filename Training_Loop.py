@@ -56,21 +56,32 @@ class NoisyLinear(nn.Module):
 
 # === Rainbow Network (Dueling + Noisy) ===
 class RainbowNetwork(nn.Module):
-    def __init__(self, state_size, action_size, hidden_size=128):
+    def __init__(self, state_size, action_size, hidden_size=256, noise_std=0.2):
         super().__init__()
+        # Enhanced feature extraction
         self.feature = nn.Sequential(
             nn.Linear(state_size, hidden_size),
-            nn.ReLU()
+            nn.LayerNorm(hidden_size),
+            nn.SiLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.LayerNorm(hidden_size),
+            nn.SiLU()
         )
+        
+        # Value stream with normalization
         self.value_stream = nn.Sequential(
-            NoisyLinear(hidden_size, hidden_size),
-            nn.ReLU(),
-            NoisyLinear(hidden_size, 1)
+            NoisyLinear(hidden_size, hidden_size, std_init=noise_std),
+            nn.LayerNorm(hidden_size),
+            nn.SiLU(),
+            NoisyLinear(hidden_size, 1, std_init=noise_std)
         )
+        
+        # Advantage stream with normalization
         self.advantage_stream = nn.Sequential(
-            NoisyLinear(hidden_size, hidden_size),
-            nn.ReLU(),
-            NoisyLinear(hidden_size, action_size)
+            NoisyLinear(hidden_size, hidden_size, std_init=noise_std),
+            nn.LayerNorm(hidden_size),
+            nn.SiLU(),
+            NoisyLinear(hidden_size, action_size, std_init=noise_std)
         )
 
     def forward(self, x):
@@ -156,9 +167,17 @@ class PrioritizedReplayBuffer:
 # === RainbowAgent ===
 class RainbowAgent:
     def __init__(self, state_size, action_size, device,
-                 buffer_size=int(1e5), batch_size=64, gamma=0.99,
-                 lr=1e-4, tau=1e-3, update_every=4, alpha=0.6, beta_start=0.4,
-                 beta_frames=100000, n_step=3):
+                 buffer_size=int(1e6),  # Increased buffer size
+                 batch_size=128,         # Increased batch size
+                 gamma=0.99,
+                 lr=5e-5,               # Reduced learning rate
+                 tau=1e-3,
+                 update_every=4,
+                 alpha=0.5,              # Prioritization exponent
+                 beta_start=0.4,
+                 beta_frames=500000,     # Longer beta schedule
+                 n_step=5,               # Increased n-step
+                 noise_std=0.2):
 
         self.state_size = state_size
         self.action_size = action_size
@@ -173,12 +192,13 @@ class RainbowAgent:
         self.frame = 1
         self.n_step = n_step
 
-        self.policy_net = RainbowNetwork(state_size, action_size).to(device)
-        self.target_net = RainbowNetwork(state_size, action_size).to(device)
+        self.policy_net = RainbowNetwork(state_size, action_size, hidden_size=256, noise_std=noise_std).to(device)
+        self.target_net = RainbowNetwork(state_size, action_size, hidden_size=256, noise_std=noise_std).to(device)
         self.target_net.load_state_dict(self.policy_net.state_dict())
         self.target_net.eval()
 
-        self.optimizer = torch.optim.Adam(self.policy_net.parameters(), lr=self.lr)
+        self.optimizer = torch.optim.Adam(self.policy_net.parameters(), lr=lr, weight_decay=1e-5)
+        self.scheduler = torch.optim.lr_scheduler.StepLR(self.optimizer, step_size=1000, gamma=0.9)
         self.memory = PrioritizedReplayBuffer(buffer_size, batch_size, alpha, n_step, gamma)
 
         self.t_step = 0
@@ -314,7 +334,7 @@ class RainbowAgent:
         print(f"Statistics saved to {filename}")
 
 # === Training Function ===
-def train_rainbow(n_episodes=10000, max_t=1000, solve_score=200):
+def train_rainbow(n_episodes=7000, max_t=2000, solve_score=350):
     # Create directories if they don't exist
     os.makedirs('./checkpoints', exist_ok=True)
     os.makedirs('./videos', exist_ok=True)
@@ -334,19 +354,35 @@ def train_rainbow(n_episodes=10000, max_t=1000, solve_score=200):
     scores = []
     scores_window = deque(maxlen=100)
     start_time = time.time()
-
+    warmup_episodes = 100
     for i_episode in range(1, n_episodes + 1):
         state, _ = env.reset(seed=i_episode)
         score = 0
+        
+        # Adaptive epsilon for warmup
+        epsilon = max(0.01, 0.5 * (1 - i_episode/warmup_episodes)) if i_episode < warmup_episodes else 0.01
+        
         for t in range(max_t):
-            action = agent.act(state)
+            action = agent.act(state, epsilon)
             next_state, reward, terminated, truncated, _ = env.step(action)
+            
+            # Reward shaping
+            shaped_reward = reward
+            if terminated and reward == -100:  # Crashed
+                shaped_reward = -150
+            elif terminated and reward == 100:  # Landed successfully
+                shaped_reward = 200
+            
             done = terminated or truncated
-            agent.step(state, action, reward, next_state, done)
+            agent.step(state, action, shaped_reward, next_state, done)
             state = next_state
             score += reward
+            
             if done:
                 break
+        
+        # Update learning rate
+        agent.scheduler.step()
         
         # Update statistics
         scores.append(score)
